@@ -121,26 +121,31 @@ start_time = time.time()
 print(selection_sort(tMax.copy()))
 stop_time = time.time()
 
-duration = stop_time - start_time
-print(f"{duration * 1000:.3f} ms")
+selection_duration = stop_time - start_time
+print(f"{selection_duration * 1000:.3f} ms")
 
 start_time = time.time()
 print(merge_sort(tMax.copy()))
 stop_time = time.time()
 
-duration = stop_time - start_time
-print(f"{duration * 1000:.3f} ms")
+merge_duration = stop_time - start_time
+print(f"{merge_duration * 1000:.3f} ms")
 
 start_time = time.time()
 print(quick_sort(tMax.copy()))
 stop_time = time.time()
 
-duration = stop_time - start_time
-print(f"{duration * 1000:.3f} ms")
+quick_duration = stop_time - start_time
+print(f"{quick_duration * 1000:.3f} ms")
 
 start_time = time.time()
 print(heap_sort(tMax.copy()))
 stop_time = time.time()
 
-duration = stop_time - start_time
-print(f"{duration * 1000:.3f} ms")
+heap_duration = stop_time - start_time
+print(f"{heap_duration * 1000:.3f} ms")
+
+print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
+print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
+print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
+print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
