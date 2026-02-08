@@ -102,3 +102,41 @@ quicksort(myList)
 print("Quicksort:", myList) 
 
 #Day 3 heap sort (Just shoving heap sort here instead of making a new file)
+def heapify(arr, n, i):
+    #Start by assuming the current node is the largest
+    largest = i
+    #Find left and right children
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    #If left is bigger then the current largest it will commit treason and kill the last largest to take the throne
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    #If right is bigger then the current largest it will convice the world that the current largets is not fit for the throne and win by election
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    #If the largest is a fraud keep swapping until you find the real deal
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        #Fix that part that is broken by the change in power
+        heapify(arr, n, largest)
+
+def heap_sort(arr):
+    n = len(arr)
+    #Start at the first dataset that has children
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    for i in range(n - 1, 0, -1):
+        #Once we have found the true king put him in his rightful place and then look at the second largest after that
+        arr[0], arr[i] = arr[i], arr[0]
+        #The children are revoulting against their parents
+        heapify(arr, i, 0)
+
+#Please do not ask why this became a power struggle for the throne. Visualling it as a tree was really hard.
+
+myList = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
+heap_sort(myList)
+print("Heap Sort:", myList)
