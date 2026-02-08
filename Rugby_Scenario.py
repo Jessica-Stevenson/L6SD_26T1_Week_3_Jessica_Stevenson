@@ -1,6 +1,10 @@
 import time
 import pandas as pd
 
+#Stop it from breaking from too much data
+import sys
+sys.setrecursionlimit(10000)
+
 #Selection Sort
 def selection_sort(myList):
     l = len(myList)
@@ -86,40 +90,140 @@ def heap_sort(arr):
     return arr
 
 
-# Load Excel file
+#Load Excel file
 df = pd.read_excel("rugby_players_data-1.xlsx")
 
-Name = "Name"  # Change this to the column you want to sort
+Name = "Name"
 data_list = df[Name].tolist()
 
+print("Name Sorting")
 
 start_time = time.time()
-print(selection_sort(data_list.copy()))
+selection_sort(data_list.copy())
 stop_time = time.time()
 
 selection_duration = stop_time - start_time
-print(f"{selection_duration * 1000:.3f} ms")
 
 start_time = time.time()
-print(merge_sort(data_list.copy()))
+merge_sort(data_list.copy())
 stop_time = time.time()
 
 merge_duration = stop_time - start_time
-print(f"{merge_duration * 1000:.3f} ms")
 
 start_time = time.time()
-print(quick_sort(data_list.copy()))
+quick_sort(data_list.copy())
 stop_time = time.time()
 
 quick_duration = stop_time - start_time
-print(f"{quick_duration * 1000:.3f} ms")
 
 start_time = time.time()
-print(heap_sort(data_list.copy()))
+heap_sort(data_list.copy())
 stop_time = time.time()
 
 heap_duration = stop_time - start_time
-print(f"{heap_duration * 1000:.3f} ms")
+
+print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
+print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
+print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
+print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
+
+Age = "Age"
+data_list = df[Age].tolist()
+
+print("Age Sorting")
+
+
+start_time = time.time()
+selection_sort(data_list.copy())
+stop_time = time.time()
+
+selection_duration = stop_time - start_time
+
+start_time = time.time()
+merge_sort(data_list.copy())
+stop_time = time.time()
+
+merge_duration = stop_time - start_time
+
+start_time = time.time()
+quick_sort(data_list.copy())
+stop_time = time.time()
+
+quick_duration = stop_time - start_time
+
+start_time = time.time()
+heap_sort(data_list.copy())
+stop_time = time.time()
+
+heap_duration = stop_time - start_time
+
+print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
+print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
+print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
+print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
+
+Height = "Height"
+data_list = df[Height].tolist()
+
+print("Height Sorting")
+
+start_time = time.time()
+selection_sort(data_list.copy())
+stop_time = time.time()
+
+selection_duration = stop_time - start_time
+
+start_time = time.time()
+merge_sort(data_list.copy())
+stop_time = time.time()
+
+merge_duration = stop_time - start_time
+
+start_time = time.time()
+quick_sort(data_list.copy())
+stop_time = time.time()
+
+quick_duration = stop_time - start_time
+
+start_time = time.time()
+heap_sort(data_list.copy())
+stop_time = time.time()
+
+heap_duration = stop_time - start_time
+
+print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
+print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
+print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
+print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
+
+Gender = "Gender"
+data_list = df[Gender].tolist()
+
+print("Gender Sorting")
+
+start_time = time.time()
+selection_sort(data_list.copy())
+stop_time = time.time()
+
+selection_duration = stop_time - start_time
+
+start_time = time.time()
+merge_sort(data_list.copy())
+stop_time = time.time()
+
+merge_duration = stop_time - start_time
+
+start_time = time.time()
+quick_sort(data_list.copy())
+stop_time = time.time()
+
+quick_duration = stop_time - start_time
+
+start_time = time.time()
+heap_sort(data_list.copy())
+stop_time = time.time()
+
+heap_duration = stop_time - start_time
 
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
