@@ -17,4 +17,50 @@ for i in range(l-1):
     min_value = myList.pop(min_index)
     myList.insert(i, min_value)
 
-print (myList)
+print ("Selection Sort: ", myList)
+
+#Merge sort (What the ever loving donut is this)
+
+#The splitening
+def mergeSort(arr):
+    #This checks if the list actually has things to sort
+    if len(arr) <= 1:
+        return arr
+
+    #This spilts the list in half
+    mid = len(arr) // 2
+    leftHalf = arr[:mid]
+    rightHalf = arr[mid:]
+
+    #Calls the mergeSort Function for both halfs and outs them into a sorted variable
+    sortedLeft = mergeSort(leftHalf)
+    sortedRight = mergeSort(rightHalf)
+
+    #Returns the data for me to use
+    return merge(sortedLeft, sortedRight)
+
+#The actual sorting
+def merge(left, right):
+    #Result holds the merged list
+    result = []
+    #I and J tracks the position
+    i = j = 0
+
+    #Loops until sorted
+    while i < len(left) and j < len(right):
+        #Compares two elements and Appends the smaller one
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    #Adds leftover (and leaves the mergesort fuction to do it's job)
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+myList = [33, 52, 87, 69, 13, 2, 19, 25, 9, 21]
+mysortedlist = mergeSort(myList)
+print("Merge Sort: ", mysortedlist)
