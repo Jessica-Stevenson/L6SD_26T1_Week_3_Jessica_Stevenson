@@ -1,5 +1,5 @@
 #Selection Sort
-myList = [33, 52, 87, 69, 13, 2, 19, 25, 9, 21]
+myList = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
 
 
 l = len(myList)
@@ -17,7 +17,7 @@ for i in range(l-1):
     min_value = myList.pop(min_index)
     myList.insert(i, min_value)
 
-print ("Selection Sort: ", myList)
+print ("Selection Sort:", myList)
 
 #Merge sort (What the ever loving donut is this)
 
@@ -61,6 +61,44 @@ def merge(left, right):
 
     return result
 
-myList = [33, 52, 87, 69, 13, 2, 19, 25, 9, 21]
+myList = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
 mysortedlist = mergeSort(myList)
-print("Merge Sort: ", mysortedlist)
+print("Merge Sort:", mysortedlist)
+
+#Quick Sort
+def partition(array, low, high):
+    #Last Element is chosen
+    pivot = array[high]
+    #Figures out which numbers are lower onthe list
+    i = low - 1
+
+    #Scans each element on the low part and compares it to the pivot
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i += 1
+            #if the element is smaller than pivot then it does some swaparoo magic
+            array[i], array[j] = array[j], array[i]
+
+    #Places our pivot in the correct spot after we are done using it
+    array[i+1], array[high] = array[high], array[i+1]
+
+    return i+1
+
+def quicksort(array, low=0, high=None):
+    #This just helps it to read the data
+    if high is None:
+        high = len(array) - 1
+
+    #Calls partition to get a pivot and sort using the pivot
+    #Then sorts the lower part of the list and higher part of the list separtly
+    if low < high:
+        pivot_index = partition(array, low, high)
+        quicksort(array, low, pivot_index-1)
+        quicksort(array, pivot_index+1, high)
+
+
+myList = [67, 12, 89, 43, 56, 34, 78, 23, 91, 45, 18, 76, 39, 52, 87, 65, 29, 83, 16, 72, 47, 54, 31, 95, 68, 21, 84, 59, 13, 75]
+quicksort(myList)
+print("Quicksort:", myList) 
+
+#Day 3 heap sort (Just shoving heap sort here instead of making a new file)
