@@ -117,10 +117,21 @@ sorted_data = [1, 2, 3, 4, 5]
 unsorted_data = [4, 1, 5, 2, 3]
 duplicate_data = [3, 3, 3, 3, 3]
 reverse_data = [5, 4, 3, 2, 1]
+no_data = []
 
 print("-")
 print("sorted_data")
 print("-")
+
+start_time = time.time()
+Bubble_Sort(sorted_data.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(sorted_data.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
 
 start_time = time.time()
 selection_sort(sorted_data.copy())
@@ -146,6 +157,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -154,6 +167,16 @@ print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
 print("-")
 print("unsorted_data")
 print("-")
+
+start_time = time.time()
+Bubble_Sort(unsorted_data.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(unsorted_data.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
 
 start_time = time.time()
 selection_sort(unsorted_data.copy())
@@ -179,6 +202,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -187,6 +212,16 @@ print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
 print("-")
 print("duplicate_data")
 print("-")
+
+start_time = time.time()
+Bubble_Sort(duplicate_data.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(duplicate_data.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
 
 start_time = time.time()
 selection_sort(duplicate_data.copy())
@@ -212,6 +247,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -220,6 +257,16 @@ print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
 print("-")
 print("reverse_data")
 print("-")
+
+start_time = time.time()
+Bubble_Sort(reverse_data.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(reverse_data.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
 
 start_time = time.time()
 selection_sort(reverse_data.copy())
@@ -245,7 +292,50 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
+print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
+
+print("-")
+print("no_data")
+print("-")
+
+start_time = time.time()
+Bubble_Sort(no_data.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(no_data.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
+
+start_time = time.time()
+selection_sort(no_data.copy())
+stop_time = time.time()
+selection_duration = stop_time - start_time
+
+start_time = time.time()
+merge_sort(no_data.copy())
+stop_time = time.time()
+merge_duration = stop_time - start_time
+
+start_time = time.time()
+quick_sort(no_data.copy())
+stop_time = time.time()
+quick_duration = stop_time - start_time
+
+start_time = time.time()
+heap_sort(no_data.copy())
+stop_time = time.time()
+heap_duration = stop_time - start_time
+
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
+print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
+print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
+print(f"Quick Sort: {quick_duration * 1000:.3f} ms")
 print(f"Heap Sort: {heap_duration * 1000:.3f} ms")
