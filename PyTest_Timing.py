@@ -5,6 +5,29 @@ import pandas as pd
 import sys
 sys.setrecursionlimit(10000)
 
+#Bubble Sort
+def Bubble_Sort(mylist):
+    n = len(mylist)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if mylist[j] > mylist[j+1]:
+                mylist[j], mylist[j+1] = mylist[j+1], mylist[j]
+    return mylist
+
+
+#Insertion Sort
+def Insertion_Sort(mylist):
+    n = len(mylist)
+    for i in range(1,n):
+        insert_index = i
+        current_value = mylist.pop(i)
+        for j in range(i-1, -1, -1):
+            if mylist[j] > current_value:
+                insert_index = j
+        mylist.insert(insert_index, current_value)
+    return mylist
+
+
 #Selection Sort
 def selection_sort(myList):
     l = len(myList)

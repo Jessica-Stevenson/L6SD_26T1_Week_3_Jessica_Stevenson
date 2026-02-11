@@ -5,6 +5,28 @@ import pandas as pd
 import sys
 sys.setrecursionlimit(10000)
 
+#Bubble Sort
+def Bubble_Sort(mylist):
+    n = len(mylist)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if mylist[j] > mylist[j+1]:
+                mylist[j], mylist[j+1] = mylist[j+1], mylist[j]
+    return mylist
+
+
+#Insertion Sort
+def Insertion_Sort(mylist):
+    n = len(mylist)
+    for i in range(1,n):
+        insert_index = i
+        current_value = mylist.pop(i)
+        for j in range(i-1, -1, -1):
+            if mylist[j] > current_value:
+                insert_index = j
+        mylist.insert(insert_index, current_value)
+    return mylist
+
 #Selection Sort
 def selection_sort(myList):
     l = len(myList)
@@ -99,6 +121,16 @@ data_list = df[Name].tolist()
 print("Name Sorting")
 
 start_time = time.time()
+Bubble_Sort(data_list.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(data_list.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
+
+start_time = time.time()
 selection_sort(data_list.copy())
 stop_time = time.time()
 
@@ -122,6 +154,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -132,6 +166,15 @@ data_list = df[Age].tolist()
 
 print("Age Sorting")
 
+start_time = time.time()
+Bubble_Sort(data_list.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(data_list.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
 
 start_time = time.time()
 selection_sort(data_list.copy())
@@ -157,6 +200,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -168,6 +213,16 @@ data_list = df[Height].tolist()
 print("Height Sorting")
 
 start_time = time.time()
+Bubble_Sort(data_list.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(data_list.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
+
+start_time = time.time()
 selection_sort(data_list.copy())
 stop_time = time.time()
 
@@ -191,6 +246,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
@@ -202,6 +259,16 @@ data_list = df[Gender].tolist()
 print("Gender Sorting")
 
 start_time = time.time()
+Bubble_Sort(data_list.copy())
+stop_time = time.time()
+bubble_duration = stop_time - start_time
+
+start_time = time.time()
+Insertion_Sort(data_list.copy())
+stop_time = time.time()
+insertion_duration = stop_time - start_time
+
+start_time = time.time()
 selection_sort(data_list.copy())
 stop_time = time.time()
 
@@ -225,6 +292,8 @@ stop_time = time.time()
 
 heap_duration = stop_time - start_time
 
+print(f"Bubble Sort: {bubble_duration * 1000:.3f} ms")
+print(f"Insertion Sort: {insertion_duration * 1000:.3f} ms")
 print(f"Selection Sort: {selection_duration * 1000:.3f} ms")
 print(f"Merge Sort: {merge_duration * 1000:.3f} ms")
 print(f"Qucik Sort: {quick_duration * 1000:.3f} ms")
